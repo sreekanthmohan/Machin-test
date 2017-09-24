@@ -1,0 +1,229 @@
+.image {
+  height: 125px;
+  width: 125px;
+}
+
+.line {
+  left: 200px;
+}
+
+.lineModal {
+  left: 20px;
+}
+
+.uploader {
+  padding-top: 9px;
+}
+
+@media only screen and (max-width: 948px) {
+  .image {
+    height: 100px;
+    width: 100px;
+  }
+  .line {
+    left: 130px
+  }
+  .uploader {
+    padding-top: 20px
+  }
+}
+
+// @import "compass/css3";
+@mixin placeholder($width:150px, $height:150px, $bgcolor: #4ca1cc, $triangle-color: #4ca1cc, $gutter-size: 3px) {
+  position: relative;
+  background: $bgcolor;
+  z-index: 1;
+  border-style: solid;
+  border-color: #068ed2;
+  width: $width;
+  text-align: center;
+  height: $height;
+  span {
+    box-shadow: 0 0 2px 0 $bgcolor inset;
+    position: relative;
+    height: $height;
+    width: $width;
+    display: block;
+    font-size: 12px;
+    color: #000;
+    line-height: $height;
+    text-align: center;
+    z-index: 2;
+    &:after {
+      position: absolute;
+      top: $gutter-size*2;
+      left: $gutter-size;
+      content: " ";
+      width: 0;
+      height: 0;
+      border-top: -$gutter-size*2 + $height/2 solid transparent;
+      border-bottom: -$gutter-size*2 + $height/2 solid transparent;
+      border-left: -$gutter-size*2 + $width/2 solid $triangle-color;
+      z-index: -1;
+    }
+    &:before {
+      position: absolute;
+      top: $gutter-size*2;
+      right: $gutter-size;
+      content: " ";
+      width: 0;
+      height: 0;
+      border-top: -$gutter-size*2 + $height/2 solid transparent;
+      border-bottom: -$gutter-size*2 + $height/2 solid transparent;
+      border-right: -$gutter-size*2 +$width/2 solid $triangle-color;
+      z-index: -1;
+    }
+  }
+  &:after {
+    position: absolute;
+    top: $gutter-size;
+    left: $gutter-size*2;
+    content: " ";
+    width: 0;
+    height: 0;
+    border-left: -$gutter-size*2 + $width/2 solid transparent;
+    border-right: -$gutter-size*2 + $width/2 solid transparent;
+    border-top: -$gutter-size*2 + $height/2 solid $triangle-color;
+    z-index: -1;
+  }
+  &:before {
+    position: absolute;
+    left: $gutter-size*2;
+    bottom: $gutter-size;
+    content: " ";
+    width: 0;
+    height: 0;
+    border-left: -$gutter-size*2 + $width/2 solid transparent;
+    border-right: -$gutter-size*2 + $width/2 solid transparent;
+    border-bottom: -$gutter-size*2 + $height/2 solid $triangle-color;
+    z-index: -1;
+  }
+}
+
+.placeholder {
+  @include placeholder;
+}
+
+.container1 {
+  input[type='range'] {
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    padding: 0px;
+    margin: 0px;
+    width: 210px;
+    height: 50px;
+    cursor: pointer;
+    background: -webkit-repeating-linear-gradient(90deg, #777, #777 1px, transparent 1px, transparent 40px) no-repeat 50% 50%;
+    background: -moz-repeating-linear-gradient(90deg, #777, #777 1px, transparent 1px, transparent 40px) no-repeat 50% 50%;
+    background: repeating-linear-gradient(90deg, #777, #777 1px, transparent 1px, transparent 40px) no-repeat 50% 50%;
+    background-size: 122px 25px;
+    font-size: 16px;
+  }
+  input[type='range'],
+  input[type='range']::-webkit-slider-runnable-track,
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  input[type='range']::-webkit-slider-runnable-track {
+    box-sizing: border-box;
+    width: 200px;
+    height: 5px;
+    border-radius: 2px;
+    background: #777;
+  }
+  input[type='range']::-moz-range-track {
+    box-sizing: border-box;
+    width: 200px;
+    height: 5px;
+    border-radius: 2px;
+    padding: 0px;
+    background: #777;
+  }
+  input[type='range']::-moz-range-thumb {
+    box-sizing: border-box;
+    padding: 0px;
+    height: 20px;
+    width: 10px;
+    border-radius: 2px;
+    border: 1px solid;
+    background: #EEE;
+  }
+  input[type='range']::-ms-track {
+    box-sizing: border-box;
+    width: 210px;
+    height: 5px;
+    border-radius: 2px;
+    padding: 0px;
+    background: #777;
+    color: #777;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    box-sizing: border-box;
+    padding: 0px;
+    height: 20px;
+    width: 10px;
+    border-radius: 2px;
+    border: 1px solid;
+    margin-top: -8px;
+    background: #EEE;
+  }
+  input[type='range']::-ms-thumb {
+    box-sizing: border-box;
+    padding: 0px;
+    height: 20px;
+    width: 10px;
+    border-radius: 2px;
+    border: 1px solid;
+    background: #EEE;
+  }
+  input[type="range"]::-ms-fill-lower {
+    background: transparent;
+  }
+  input[type='range']:focus {
+    outline: none;
+  }
+}
+
+
+/*input[type='range']:after{
+  position: absolute;
+  content: '20 40 60 80';
+  padding: 25px 4035px;
+  word-spacing: 20px;
+  left: 0px;
+  top: 0px;
+}*/
+
+.container1:after {
+  position: absolute;
+  color: #777;
+  content: '13+ 20+ 30+ 45+ ';
+  padding: 40px;
+  word-spacing: 20px;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+.container1 {
+  padding: 0px;
+  position: relative;
+}
+
+
+/* Just for demo */
+
+output {
+  display: block;
+  margin-top: 20px;
+  color: #777;
+}
+
+output:before {
+  content: "Selected Value: ";
+  font-weight: bold;
+}
+
+body {
+  font-family: Calibri, Arial;
+}
