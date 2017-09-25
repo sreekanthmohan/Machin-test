@@ -17,6 +17,7 @@ export class RegistrationFormComponent implements OnInit {
   private model: User;
   public contacts: Array<Contact>;
   private uploader: string = "1";
+  private length : number;
 
   private nativeElement: Node;
 
@@ -39,7 +40,7 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {
     this.model = new User();
     this.selectedNav = 'select value';
-    this.model.age = 27
+    this.model.age = 33
   }
 
   upload() {
@@ -188,24 +189,27 @@ export class RegistrationFormComponent implements OnInit {
   studentSubmit() {
     console.log(this.model)
     if (this.model.subscribe == true) {
-      this.model.subscribeDesc = "And please send me the news letters."
+      this.model.subscribeDesc = ". And please send me the news letters"
     } else {
       this.model.subscribeDesc = "";
     }
-    if (this.model.age >= 0 && this.model.age < 42) {
+    console.log("age", this.model.age)
+    if (this.model.age == 0) {
       this.model.ageRange = "above 13 years"
-    } else if (this.model.age >= 42 && this.model.age < 58) {
+    } else if (this.model.age == 33) {
       this.model.ageRange = "above 20 years"
-    } else if (this.model.age >= 58 && this.model.age < 73) {
+    } else if (this.model.age == 66) {
       this.model.ageRange = "above 30 years"
-    } else if (this.model.age >= 73) {
+    } else if (this.model.age == 99) {
       this.model.ageRange = "above 45 years"
     }
-    // addform.form.reset()
-
-    // this.model = new User();
-
+console.log("age desc", this.model.ageRange)
+if(this.model.interests.length == 0){
+  console.log("interests nil");
+} 
+this.length = this.model.interests.length
   }
+
 
   alert() {
     alert("Registration successful");
