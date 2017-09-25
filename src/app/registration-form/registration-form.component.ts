@@ -24,6 +24,7 @@ export class RegistrationFormComponent implements OnInit {
   selectedNav: any;
   navs = ['Home address', 'Company address'];
   @ViewChild('input') input: ElementRef
+  @ViewChild('interests') interests: ElementRef
 
   path = '';
   public file_srcs: string[] = [];
@@ -38,6 +39,7 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit() {
     this.model = new User();
     this.selectedNav = 'select value';
+    this.model.age = 27
   }
 
   upload() {
@@ -56,6 +58,7 @@ export class RegistrationFormComponent implements OnInit {
     // let contact = new Contact(name);
     // this.contacts.push(contact);
     this.model.interests.push(name)
+    this.interests.nativeElement.value="";
     console.log("interests", this.model.interests)
   }
 
@@ -189,13 +192,13 @@ export class RegistrationFormComponent implements OnInit {
     } else {
       this.model.subscribeDesc = "";
     }
-    if (this.model.age == 20) {
+    if (this.model.age >= 0 && this.model.age < 42) {
       this.model.ageRange = "above 13 years"
-    } else if (this.model.age == 40) {
+    } else if (this.model.age >= 42 && this.model.age < 58) {
       this.model.ageRange = "above 20 years"
-    } else if (this.model.age == 60) {
+    } else if (this.model.age >= 58 && this.model.age < 73) {
       this.model.ageRange = "above 30 years"
-    } else if (this.model.age == 80) {
+    } else if (this.model.age >= 73) {
       this.model.ageRange = "above 45 years"
     }
     // addform.form.reset()

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  private show: string = "1";
+  private show: string = "0";
   register() {
     this.show = "1";
   }
