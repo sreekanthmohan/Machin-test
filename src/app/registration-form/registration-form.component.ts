@@ -44,7 +44,6 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   upload() {
-    // console.log("contacts", this.contacts)
     this.model.userImg = "";
     this.uploader = "1";
     this.input.nativeElement.click();
@@ -55,9 +54,6 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   addContact(name) {
-    // let interst = new this.model.interests(name)
-    // let contact = new Contact(name);
-    // this.contacts.push(contact);
     this.model.interests.push(name)
     this.interests.nativeElement.value="";
     console.log("interests", this.model.interests)
@@ -100,7 +96,6 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   fileChange(input) {
-    // this.model.userImg = new Array
     this.file_srcs = new Array;
     this.spinner = 1;
     this.readFiles(input.files);
@@ -127,8 +122,6 @@ export class RegistrationFormComponent implements OnInit {
         // Create an img element and add the image file data to it  
         var img = document.createElement("img");
         img.src = result;
-        // Send this img to the resize function (and wait for callback) 
-        // console.log("before resize", img.src)
         this.bsize = img.src
 
         this.resize(img, 250, 250, (resized_jpeg, before, after) => {

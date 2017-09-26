@@ -44,20 +44,10 @@
               <input type="range" min="0" max="100" value="40" step="33" list="tickmarks" list="steplist" id="rangeInput" oninput="output.value = rangeInput.value"
                 [(ngModel)]="model.age" name="age" #age="ngModel" style="border-color:blue;" required>
               <output hidden id="output" for="rangeInput"></output>
-              <!-- Just to display selected value -->
             </div>
           </div>
         </div>
         <br>
-        <!-- <input type="range" min="0" max="100" step="25" list="steplist">
-        <datalist id="steplist">
-           <option>0</option> 
-          <option>25</option>
-          <option>50</option>
-          <option>75</option>
-          <option>100</option>
-        </datalist> -->
-
         <div class="form-group row">
           <label for="email" class="col-sm-2 col-form-label">Email</label>
           <div class="col-sm-10">
@@ -159,9 +149,6 @@
 
 <!-- Large modal -->
 
-
-<!-- <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> -->
-
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" style="padding: 1cm 1cm 5cm 1cm;">
@@ -189,7 +176,7 @@
 
         <div class="col-md-6">
           <p>I am Mr. {{model.firstName}} {{model.lastName}} and I am {{model.ageRange}} and you can send your emails to {{model.email}}.
-            I lives in the state of {{model.state}}<span *ngIf="model.interests.length > 0">. I likes to play</span> <span *ngFor="let interest of model.interests;let last = last; let i = index"><span *ngIf="last == true && model.interests.length > 1"> and </span>{{interest}} <span *ngIf="last == false">,</span></span> {{model?.subscribeDesc}}. Please reach out to me on my phone {{model.tel}} </p>
+            I lives in the state of {{model.state}}<span *ngIf="model.interests.length > 0">. I likes to play</span>  <span *ngFor="let interest of model.interests;let last = last; let i = index"><span *ngIf="last == true && model.interests.length > 1"> and </span>{{interest}} <span *ngIf="last == false && i+1 != length-1">,</span></span> {{model?.subscribeDesc}}. Please reach out to me on my phone {{model.tel}} </p>
 
           <button type="button" class="btn btn-primary" (click)="alert()">Agree</button>
         </div>
